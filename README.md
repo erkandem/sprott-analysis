@@ -1,7 +1,40 @@
-# Vue 3 + Vite
+# Plotting of Premium Discount Data Gained from Sprotts' Website
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Setup
 
-## Recommended IDE Setup
+Idea is to have a Vue app with axios and a charting library to visualize 
+some data regarding premium and discounts
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Development Backend
+While an API might be in place later, for now I will work with a JSON dump of pandas dataframe served
+with a python CORS enabled dev server.
+    cd data
+    python3 -m server.py
+
+### Charting libraries
+
+#### Plotly.jy
+Tried plotly, as the one is based on D3 and can hq plotting.
+Doesn't work with Vue. Tried the integration https://github.com/David-Desmaisons/vue-plotly.
+It's not ready for Vue 3. It has support for React though.
+
+Some resources:
+https://codepen.io/rhamner/pen/MXgWqJ?editors=1010
+
+https://www.somesolvedproblems.com/2019/02/tutorial-writing-vue-app-from-start-to.html
+https://github.com/rhamner/vue-test/blob/master/src/components/PlotlyGraph.vue
+
+https://www.somesolvedproblems.com/2018/05/how-to-use-plotly-in-vue.html
+
+#### Chart.js
+It looks nice and simple but more like a toy library.
+I won't be able to do complex stuff with it.
+
+#### ECharts
+Found ECharts based on D3 with good integration to Vue and many features.
+Leaving a git commit of it  just in case.
+
+#### Mentions
+https://vuetifyjs.com/en/
+
+https://www.highcharts.com/blog/download/
