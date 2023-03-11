@@ -1,32 +1,34 @@
 <script setup>
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
-import { uraniumFilename, baseUrl, extractSeries } from '/src/client/client.js'
-import Plotly  from "./Plotly.vue"
+import {
+    uraniumFilename,
+    baseUrl,
+    extractSeriesForHighChartsFormat
+} from '/src/client/client.js'
+import HighchartsComponent from './HighchartsComponent.vue'
 
 let responseData = null
-let data = ref([{
-    x: ["2012-05-06", "2012-05-07", "2012-05-08", "2012-05-09"],
-    y: [0, 1, 2 , 3],
-    color: "#C8A2C8",
-    type: "scatter",
-    line: { width: 2.5 }
-}])
-const layout = ref({})
-const config = ref({})
+const chartOptions = ref({
+        series: [{
+            chart: {type: 'line'},
+            data: [1,2,3]
+        }]
+})
 
 onMounted(() => {
     axios.get(baseUrl + uraniumFilename)
     .then((result) => {
         responseData = result.data
-        const seriesData = extractSeries(responseData, "date", "premium_pct")
-        data.value = [{
-            x: seriesData.x,
-            y: seriesData.y,
-            color: "#C8A2C8",
-            type: "scatter",
-            line: { width: 2.5 }
-        }]
+        chartOptions.value.series[0].data = extractSeriesForHighChartsFormat(
+            responseData,
+            "date",
+            "premium_pct"
+        )
+        chartOptions.value.series[0]["name"] ="P/D"
+        chartOptions.value["xAxis"] = { type: 'datetime' }
+        chartOptions.value["yAxis"] = [{"title": {"text": "Premium or Discount in % of NAV [%]"}}]
+        chartOptions.value["title"] = {"text": "Premium Discount as Percentage of Sprott Uranium Trusts' NAV"}
     })
     .catch((error) => {
         console.log(String(error))
@@ -37,13 +39,8 @@ onMounted(() => {
 
 <template>
     <main>
-        
-        <div>
-            <Plotly
-            :data="data"
-            :layout="layout"
-            :config="config"
-            ></Plotly>
+        <div class="price-chart">
+        <HighchartsComponent v-bind:chartOptions="chartOptions"></HighchartsComponent>
         </div>
     </main>
 </template>

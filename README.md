@@ -29,12 +29,24 @@ https://www.somesolvedproblems.com/2018/05/how-to-use-plotly-in-vue.html
 #### Chart.js
 It looks nice and simple but more like a toy library.
 I won't be able to do complex stuff with it.
+Vue integration: https://github.com/apertureless/vue-chartjs/
+Docs: https://www.chartjs.org/docs/latest/getting-started/integration.html
 
 #### ECharts
 Found ECharts based on D3 with good integration to Vue and many features.
 Leaving a git commit of it  just in case.
 
-#### Mentions
-https://vuetifyjs.com/en/
+#### HighCharts
 
-https://www.highcharts.com/blog/download/
+works, got vue plugin maintained by HighCharts itself
+https://github.com/highcharts/highcharts-vue
+
+Histogramm doesn't work???
+
+#### uPlot
+https://github.com/leeoniya/uPlot
+
+#### Mentions
+Component library: https://vuetifyjs.com/en/
+
+Eco System list: https://github.com/vuejs/awesome-vue
