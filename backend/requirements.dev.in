@@ -1,0 +1,21 @@
+-r requirements.txt
+# dependency management
+pip-tools
+
+# type checking
+types-html5lib
+types-pytz
+types-requests
+types-urllib3
+typing_extensions
+pandas-stubs
+types-Flask-Cors
+mypy
+mypy-extensions
+
+# formatting
+black
+isort
+
+# testing
+pytest
