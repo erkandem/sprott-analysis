@@ -27,7 +27,7 @@ Before committing run:
 
 After fixing the errors run the formatter:
 
-    npm run Format
+    npm run format
 
 ## Tests
 
