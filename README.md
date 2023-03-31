@@ -50,3 +50,26 @@ https://github.com/leeoniya/uPlot
 Component library: https://vuetifyjs.com/en/
 
 Eco System list: https://github.com/vuejs/awesome-vue
+
+
+Snipped to calculate statistics in JS using simplestatistics
+https://simplestatistics.org/docs/#mean
+```js
+const premium_pct = document.lol.map((elm) => {return elm["premium_pct"]})
+const sigma = ss.standardDeviation(premium_pct.slice(premium_pct.length - 250, premium_pct.length - 1))
+const mean = ss.mean(premium_pct.slice(premium_pct.length - 250, premium_pct.length - 1))
+const last = premium_pct[premium_pct.length - 1]
+```
+
+
+Reintroduced plotly after I found a working solution for plotly and vue3
+ - Combine Backend sprottwatch and Frontend application sprottwatch-fe
+ - combine the file hosting server with the calculation server (histogram)
+ - distinguish API of backend from backend which scrape data
+ - introduce a database to feed the values in
+ - get the value via API from the database instead of the file
+ - throw in a nice styling for the one-page data app
+ - deploy
+ - tests
+ - CI
+ - CD

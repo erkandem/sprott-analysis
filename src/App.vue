@@ -1,10 +1,9 @@
 <script setup>
-import AppContainer from './components/AppContainer.vue';
+import AppContainer from "./components/AppContainer.vue";
 </script>
 
 <template>
-    <AppContainer></AppContainer>
+  <AppContainer></AppContainer>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
